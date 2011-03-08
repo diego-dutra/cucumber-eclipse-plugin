@@ -1,298 +1,515 @@
 <?xml version="1.0" encoding="ASCII"?>
-<org.openarchitectureware.xtext:XtextFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:org.openarchitectureware.xtext="http://www.openarchitectureware.org/xtext" name="cucumberfeature" nsURI="http://www.example.org/info/cukes/feature">
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="Cucumber">
-    <type alias="" name="Cucumber"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ANY" feature="f" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Feature"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="Feature">
-    <type alias="" name="Feature"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="fi" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="FeatureIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="fd" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="FeatureDescription"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="fb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="FeatureBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="b" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Background"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ANY" feature="ss" operator="ADD">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Scenario"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="FeatureBlock">
-    <type alias="" name="FeatureBlock"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="bvd" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="BusinessValueDefinition"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="rd" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="RoleDefinition"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="sad" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="SomeActionDefinition"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="FeatureIdentifier">
-    <type alias="" name="FeatureIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Feature:"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="FeatureDescription">
-    <type alias="" name="FeatureDescription"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="BusinessValueDefinition">
-    <type alias="" name="BusinessValueDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="RoleDefinition">
-    <type alias="" name="RoleDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="SomeActionDefinition">
-    <type alias="" name="SomeActionDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="Background">
-    <type alias="" name="Background"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="bi" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="BackgroundIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="gb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="GivenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="wb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="WhenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="tb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ThenBlock"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="BackgroundIdentifier">
-    <type alias="" name="BackgroundIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Background:"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="Scenario">
-    <type alias="" name="Scenario"/>
-    <content xsi:type="org.openarchitectureware.xtext:Alternatives">
-      <alternatives xsi:type="org.openarchitectureware.xtext:RuleName" name="BasicScenario"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:RuleName" name="TableScenario"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="BasicScenario">
-    <type alias="" name="BasicScenario"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="si" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ScenarioIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="sd" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ScenarioDescription"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="gb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="GivenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="wb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="WhenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="tb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ThenBlock"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="TableScenario">
-    <type alias="" name="TableScenario"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="tsi" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="TableScenarioIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="sd" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ScenarioDescription"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="gb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="GivenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="wb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="WhenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="OPTIONAL" feature="tb" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ThenBlock"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="table_block" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="TableBlock"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="TableScenarioIdentifier">
-    <type alias="" name="TableScenarioIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Scenario Outline:"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="TableBlock">
-    <type alias="" name="TableBlock"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="ti" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="TableIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="th" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="TableHeader"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ANY" feature="tr" operator="ADD">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="TableRow"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="TableIdentifier">
-    <type alias="" name="TableIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Examples:"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="TableHeader">
-    <type alias="" name="TableHeader"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="TableRow">
-    <type alias="" name="TableRow"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="ScenarioIdentifier">
-    <type alias="" name="ScenarioIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Scenario:"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="ScenarioDescription">
-    <type alias="" name="ScenarioDescription"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="GivenBlock">
-    <type alias="" name="GivenBlock"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="gi" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="GivenIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="given_def" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="GivenDefinition"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ANY" feature="ab" operator="ADD">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="AndBlock"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="GivenIdentifier">
-    <type alias="" name="GivenIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Given"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="WhenBlock">
-    <type alias="" name="WhenBlock"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="wi" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="WhenIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="when_def" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="WhenDefinition"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ANY" feature="ab" operator="ADD">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="AndBlock"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="WhenIdentifier">
-    <type alias="" name="WhenIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="When"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="ThenBlock">
-    <type alias="" name="ThenBlock"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="ti" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ThenIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="then_def" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="ThenDefinition"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ANY" feature="ab" operator="ADD">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="AndBlock"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="ThenIdentifier">
-    <type alias="" name="ThenIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="Then"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="AndBlock">
-    <type alias="" name="AndBlock"/>
-    <content xsi:type="org.openarchitectureware.xtext:Group">
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="ai" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="AndIdentifier"/>
-      </children>
-      <children xsi:type="org.openarchitectureware.xtext:Assignment" feature="and_def" operator="ASSIGN">
-        <token xsi:type="org.openarchitectureware.xtext:RuleName" name="AndDefinition"/>
-      </children>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="AndIdentifier">
-    <type alias="" name="AndIdentifier"/>
-    <content xsi:type="org.openarchitectureware.xtext:Keyword" value="And"/>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="GivenDefinition">
-    <type alias="" name="GivenDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="WhenDefinition">
-    <type alias="" name="WhenDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="ThenDefinition">
-    <type alias="" name="ThenDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:TypeRule" name="AndDefinition">
-    <type alias="" name="AndDefinition"/>
-    <content xsi:type="org.openarchitectureware.xtext:Assignment" cardinality="ONEORMORE" feature="text" operator="ADD">
-      <token xsi:type="org.openarchitectureware.xtext:RuleName" name="Word"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:StringRule" name="Word">
-    <content xsi:type="org.openarchitectureware.xtext:Alternatives">
-      <alternatives xsi:type="org.openarchitectureware.xtext:RuleName" name="ID"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:RuleName" name="STRING"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:RuleName" name="INT"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:Keyword" value="."/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:Keyword" value=":"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:Keyword" value=","/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:Keyword" value="|"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:Keyword" value="&lt;"/>
-      <alternatives xsi:type="org.openarchitectureware.xtext:Keyword" value=">"/>
-    </content>
-  </rules>
-  <rules xsi:type="org.openarchitectureware.xtext:NativeLexerRule" name="SL_COMMENT" impl="'#' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}"/>
-  <rules xsi:type="org.openarchitectureware.xtext:NativeLexerRule" name="ID"/>
-  <rules xsi:type="org.openarchitectureware.xtext:NativeLexerRule" name="STRING"/>
-  <rules xsi:type="org.openarchitectureware.xtext:NativeLexerRule" name="INT"/>
-  <rules xsi:type="org.openarchitectureware.xtext:NativeLexerRule" name="WS"/>
-  <rules xsi:type="org.openarchitectureware.xtext:NativeLexerRule" name="ML_COMMENT"/>
-</org.openarchitectureware.xtext:XtextFile>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext">
+  <xtext:Grammar name="info.cukes.feature.CucumberFeature" usedGrammars="/1">
+    <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="cucumberFeature">
+      <ePackage href="http://www.cukes.info/feature/CucumberFeature#/"/>
+    </metamodelDeclarations>
+    <rules xsi:type="xtext:ParserRule" name="Cucumber">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//Cucumber"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="*" feature="f" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.1"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Feature">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//Feature"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="fi" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.3"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="fd" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.4"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="fb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.2"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="b" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.8"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="ss" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.10"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="FeatureBlock">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//FeatureBlock"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="bvd" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.5"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="rd" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.6"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="sad" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.7"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="FeatureIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Feature:"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="FeatureDescription">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//FeatureDescription"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BusinessValueDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//BusinessValueDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="RoleDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//RoleDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="SomeActionDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//SomeActionDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Background">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//Background"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="bi" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.9"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="gb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="wb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="tb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BackgroundIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Background:"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Scenario">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//Scenario"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.11"/>
+        <elements xsi:type="xtext:RuleCall" rule="/0/@rules.12"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="BasicScenario">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//BasicScenario"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="si" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.18"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="sd" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="gb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="wb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="tb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TableScenario">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//TableScenario"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="tsi" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.13"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="sd" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.19"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="gb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.20"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="wb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.22"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="tb" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.24"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="table_block" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.14"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TableScenarioIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Scenario Outline:"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TableBlock">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//TableBlock"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="ti" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.15"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="th" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.16"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="tr" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.17"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TableIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Examples:"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TableHeader">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//TableHeader"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="TableRow">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//TableRow"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ScenarioIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Scenario:"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ScenarioDescription">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//ScenarioDescription"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="GivenBlock">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//GivenBlock"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="gi" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.21"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="given_def" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.28"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="ab" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="GivenIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Given"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="WhenBlock">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//WhenBlock"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="wi" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.23"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="when_def" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.29"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="ab" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="WhenIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="When"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ThenBlock">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//ThenBlock"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="ti" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.25"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="then_def" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.30"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" cardinality="*" feature="ab" operator="+=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.26"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ThenIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="Then"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AndBlock">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//AndBlock"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Assignment" feature="ai" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.27"/>
+        </elements>
+        <elements xsi:type="xtext:Assignment" feature="and_def" operator="=">
+          <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.31"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AndIdentifier">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Keyword" value="And"/>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="GivenDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//GivenDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="WhenDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//WhenDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="ThenDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//ThenDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="AndDefinition">
+      <type metamodel="/0/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EClass" href="http://www.cukes.info/feature/CucumberFeature#//AndDefinition"/>
+      </type>
+      <alternatives xsi:type="xtext:Assignment" cardinality="+" feature="text" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="/0/@rules.32"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:ParserRule" name="Word">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.0"/>
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.2"/>
+        <elements xsi:type="xtext:RuleCall" rule="/1/@rules.1"/>
+        <elements xsi:type="xtext:Keyword" value="."/>
+        <elements xsi:type="xtext:Keyword" value=":"/>
+        <elements xsi:type="xtext:Keyword" value=","/>
+        <elements xsi:type="xtext:Keyword" value="|"/>
+        <elements xsi:type="xtext:Keyword" value="&lt;"/>
+        <elements xsi:type="xtext:Keyword" value=">"/>
+      </alternatives>
+    </rules>
+  </xtext:Grammar>
+  <xtext:Grammar name="org.eclipse.xtext.common.Terminals" definesHiddenTokens="true" hiddenTokens="/1/@rules.5 /1/@rules.3 /1/@rules.4">
+    <metamodelDeclarations xsi:type="xtext:ReferencedMetamodel" alias="ecore">
+      <ePackage href="http://www.eclipse.org/emf/2002/Ecore#/"/>
+    </metamodelDeclarations>
+    <rules xsi:type="xtext:TerminalRule" name="ID">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" cardinality="?" value="^"/>
+        <elements xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="a"/>
+            <right value="z"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="A"/>
+            <right value="Z"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="_"/>
+        </elements>
+        <elements xsi:type="xtext:Alternatives" cardinality="*">
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="a"/>
+            <right value="z"/>
+          </elements>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="A"/>
+            <right value="Z"/>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="_"/>
+          <elements xsi:type="xtext:CharacterRange">
+            <left value="0"/>
+            <right value="9"/>
+          </elements>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="INT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      </type>
+      <alternatives xsi:type="xtext:CharacterRange" cardinality="+">
+        <left value="0"/>
+        <right value="9"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="STRING">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives">
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="&quot;"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="*">
+            <elements xsi:type="xtext:Group">
+              <elements xsi:type="xtext:Keyword" value="\"/>
+              <elements xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="b"/>
+                <elements xsi:type="xtext:Keyword" value="t"/>
+                <elements xsi:type="xtext:Keyword" value="n"/>
+                <elements xsi:type="xtext:Keyword" value="f"/>
+                <elements xsi:type="xtext:Keyword" value="r"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+                <elements xsi:type="xtext:Keyword" value="\"/>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:NegatedToken">
+              <terminal xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="\"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="&quot;"/>
+        </elements>
+        <elements xsi:type="xtext:Group">
+          <elements xsi:type="xtext:Keyword" value="'"/>
+          <elements xsi:type="xtext:Alternatives" cardinality="*">
+            <elements xsi:type="xtext:Group">
+              <elements xsi:type="xtext:Keyword" value="\"/>
+              <elements xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="b"/>
+                <elements xsi:type="xtext:Keyword" value="t"/>
+                <elements xsi:type="xtext:Keyword" value="n"/>
+                <elements xsi:type="xtext:Keyword" value="f"/>
+                <elements xsi:type="xtext:Keyword" value="r"/>
+                <elements xsi:type="xtext:Keyword" value="&quot;"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+                <elements xsi:type="xtext:Keyword" value="\"/>
+              </elements>
+            </elements>
+            <elements xsi:type="xtext:NegatedToken">
+              <terminal xsi:type="xtext:Alternatives">
+                <elements xsi:type="xtext:Keyword" value="\"/>
+                <elements xsi:type="xtext:Keyword" value="'"/>
+              </terminal>
+            </elements>
+          </elements>
+          <elements xsi:type="xtext:Keyword" value="'"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ML_COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="/*"/>
+        <elements xsi:type="xtext:UntilToken">
+          <terminal xsi:type="xtext:Keyword" value="*/"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="SL_COMMENT">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Group">
+        <elements xsi:type="xtext:Keyword" value="//"/>
+        <elements xsi:type="xtext:NegatedToken" cardinality="*">
+          <terminal xsi:type="xtext:Alternatives">
+            <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+            <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+          </terminal>
+        </elements>
+        <elements xsi:type="xtext:Group" cardinality="?">
+          <elements xsi:type="xtext:Keyword" cardinality="?" value="&#xD;"/>
+          <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+        </elements>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="WS">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Alternatives" cardinality="+">
+        <elements xsi:type="xtext:Keyword" value=" "/>
+        <elements xsi:type="xtext:Keyword" value="&#x9;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xD;"/>
+        <elements xsi:type="xtext:Keyword" value="&#xA;"/>
+      </alternatives>
+    </rules>
+    <rules xsi:type="xtext:TerminalRule" name="ANY_OTHER">
+      <type metamodel="/1/@metamodelDeclarations.0">
+        <classifier xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </type>
+      <alternatives xsi:type="xtext:Wildcard"/>
+    </rules>
+  </xtext:Grammar>
+</xmi:XMI>
