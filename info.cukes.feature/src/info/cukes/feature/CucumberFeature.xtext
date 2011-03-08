@@ -1,3 +1,6 @@
+grammar info.cukes.feature.CucumberFeature with org.eclipse.xtext.common.Terminals
+
+generate cucumberFeature "http://www.cukes.info/feature/CucumberFeature"
 // specify your DSL grammar rules here ...
 // IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
@@ -76,7 +79,7 @@ AndDefinition: (text+=Word)+;
 
 //Word: _Word|Number;
 
-String Word: ID|STRING|INT|"."|":"|","|"|"|"<"|">";//|WS; //NotInorderto|NotAsa|NotIwantto|
+Word: ID|STRING|INT|"."|":"|","|"|"|"<"|">";//|WS; //NotInorderto|NotAsa|NotIwantto|
 
 //Native NotInorderto:"'In '(~'o')?|'In o'(~'r')?|'In or'(~'d')?|'In ord'(~'e')?|'In orde'(~'r')?| 'In order '(~'t')?|'In order t'(~'o')?";
 //Native NotAsa:"'As '(~'a')?|'As a'(~'n')?";
@@ -93,5 +96,5 @@ String Word: ID|STRING|INT|"."|":"|","|"|"|"<"|">";//|WS; //NotInorderto|NotAsa|
 //Native WS:
 //"(' '|'\t')+ {$channel=HIDDEN;}";
 
-Native SL_COMMENT:
-"'#' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}";
+//SL_COMMENT:
+//"'#' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}";
