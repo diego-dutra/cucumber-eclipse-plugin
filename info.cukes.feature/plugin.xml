@@ -1,9 +1,10 @@
 <plugin>
-   <extension
-         point="org.eclipse.emf.ecore.extension_parser">
-      <parser
-            class="info.cukes.feature.resource.CucumberFeatureResourceFactory"
-            type="feature">
-      </parser>
-   </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.cukes.info/feature/CucumberFeature" 
+       class = "info.cukes.feature.cucumberFeature.CucumberFeaturePackage"
+       genModel = "info/cukes/feature/CucumberFeature.genmodel" /> 
+	
+  </extension>
+
 </plugin>
