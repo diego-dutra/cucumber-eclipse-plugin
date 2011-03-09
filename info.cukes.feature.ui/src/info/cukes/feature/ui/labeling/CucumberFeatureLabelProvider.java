@@ -3,8 +3,6 @@
 */
 package info.cukes.feature.ui.labeling;
 
-import java.util.List;
-
 import info.cukes.feature.cucumberFeature.AndBlock;
 import info.cukes.feature.cucumberFeature.AndDefinition;
 import info.cukes.feature.cucumberFeature.Background;
@@ -13,13 +11,13 @@ import info.cukes.feature.cucumberFeature.FeatureDescription;
 import info.cukes.feature.cucumberFeature.GivenBlock;
 import info.cukes.feature.cucumberFeature.GivenDefinition;
 import info.cukes.feature.cucumberFeature.Scenario;
-import info.cukes.feature.cucumberFeature.ScenarioDescription;
 import info.cukes.feature.cucumberFeature.TableBlock;
-import info.cukes.feature.cucumberFeature.TableHeader;
 import info.cukes.feature.cucumberFeature.ThenBlock;
 import info.cukes.feature.cucumberFeature.ThenDefinition;
 import info.cukes.feature.cucumberFeature.WhenBlock;
 import info.cukes.feature.cucumberFeature.WhenDefinition;
+
+import java.util.List;
 
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -56,12 +54,15 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
     String text(Scenario elem) { return "Scenario: "+join(elem.getSd().getText()," "); }
 
 
+    String image(GivenBlock elem) { return "default.gif"; }
     String text(GivenBlock elem) { return "Given "+text(elem.getGiven_def()); }
     String text(GivenDefinition elem) { return join(elem.getText()," "); }
 
+    String image(WhenBlock elem) { return "default.gif"; }
     String text(WhenBlock elem) { return "When "+text(elem.getWhen_def()); }
     String text(WhenDefinition elem) { return join(elem.getText()," "); }
 
+    String image(ThenBlock elem) { return "default.gif"; }
     String text(ThenBlock elem) { return "Then "+text(elem.getThen_def()); }
     String text(ThenDefinition elem) { return join(elem.getText()," "); }
 
