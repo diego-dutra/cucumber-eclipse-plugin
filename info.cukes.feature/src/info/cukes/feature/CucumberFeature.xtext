@@ -24,10 +24,8 @@ Scenario: BasicScenario | TableScenario;
 BasicScenario: si=ScenarioIdentifier description=ScenarioDescription (stepDefinitions += StepDefinition)*;
 TableScenario: "Scenario Outline:" description=ScenarioDescription  (stepDefinitions += StepDefinition)* table_block=TableBlock;
 
-TableBlock: ti=TableIdentifier th=TableHeader
+TableBlock: "Examples:" (header+=Word)+
 		(tr+=TableRow)*;
-TableIdentifier: "Examples:";
-TableHeader: (text+=Word)+;
 TableRow: (text+=Word)+;
 
 StepDefinition: type=("Given" | "When" | "Then" | "And") (text+=Word)+;
