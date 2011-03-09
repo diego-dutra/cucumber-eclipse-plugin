@@ -1,8 +1,6 @@
 grammar info.cukes.feature.CucumberFeature with org.eclipse.xtext.common.Terminals
 
 generate cucumberFeature "http://www.cukes.info/feature/CucumberFeature"
-// specify your DSL grammar rules here ...
-// IMPORTANT: You should change the property 'overwrite.pluginresources=true' in the properties file to 'overwrite.pluginresources=false' AFTER first generation
 
 Cucumber: (f+=Feature)*;
 
@@ -13,17 +11,11 @@ FeatureBlock: (bvd=BusinessValueDefinition)? (rd=RoleDefinition)? (sad=SomeActio
 FeatureIdentifier: "Feature:";
 FeatureDescription: (text+=Word)+;
 
-BusinessValueDefinition: (text+=Word)+;//bv=BusinessValueIdentifier bv_desc=BusinessValueDescription;
-//Native BusinessValueIdentifier: "'In order to '";
-//BusinessValueDescription: (text+=Word)+;
+BusinessValueDefinition: (text+=Word)+;
 
-RoleDefinition: (text+=Word)+; //ri=RoleIdentifier role_desc=RoleDescription;
-//Native RoleIdentifier: "'As a '|'As an '";
-//RoleDescription: (text+=Word)+;
+RoleDefinition: (text+=Word)+;
 
-SomeActionDefinition: (text+=Word)+; //sa=SomeActionIdentifier sa_desc=SomeActionDescription;
-//Native SomeActionIdentifier: "'I want to '";
-//SomeActionDescription: (text+=Word)+;
+SomeActionDefinition: (text+=Word)+;
 
 Background: bi=BackgroundIdentifier (gb=GivenBlock)? (wb=WhenBlock)? (tb=ThenBlock)?;
 BackgroundIdentifier: "Background:";
@@ -39,7 +31,6 @@ TableIdentifier: "Examples:";
 TableHeader: (text+=Word)+;
 TableRow: (text+=Word)+;
 
-//Scenario: si=ScenarioIdentifier sd=ScenarioDescription gb=GivenBlock wb=WhenBlock tb=ThenBlock;
 
 ScenarioIdentifier: "Scenario:";
 ScenarioDescription: (text+=Word)+;
@@ -64,37 +55,6 @@ WhenDefinition: (text+=Word)+;
 ThenDefinition: (text+=Word)+;
 AndDefinition: (text+=Word)+;
 
-//Native AndBlock:
-//"And ~('\n'|'\r')* '\r'? '\n'";
-
-//Native Text: "~('\n'|'\r')* '\r'? '\n'";
-
-//Text: (ID|STRING|INT|special_char)+ ; // |special_word
-//special_char: ".";
-
-//Native WS:"(' '|'\t'|'\r'|'\n')+";
-
-//Number: _Number;
-//String _Number: INT;
-
-//Word: _Word|Number;
 
 Word: ID|STRING|INT|"."|":"|","|"|"|"<"|">";//|WS; //NotInorderto|NotAsa|NotIwantto|
 
-//Native NotInorderto:"'In '(~'o')?|'In o'(~'r')?|'In or'(~'d')?|'In ord'(~'e')?|'In orde'(~'r')?| 'In order '(~'t')?|'In order t'(~'o')?";
-//Native NotAsa:"'As '(~'a')?|'As a'(~'n')?";
-//Native NotIwantto:"'I '(~'w')?|'I w'(~'a')?|'I wa'(~'n')?|'In wan'(~'t')?|'In want '(~'t')?|'In want t'(~'o')?";
-
-// special_word:"Feature"|"Scenario"|"As"|"a"|"an"|"I"|"want"|"to"|"In"|"order"|"to"|"Given"|"When"|"Then";
-
-// Newline "\n" is no whitespace in ATASM but a end of line marker
-// so for parsing they must not be ignored
-//Native NEW_LINE:
-//"('\r'? '\n')+"; //{$channel=HIDDEN;}";
-
-// in contrast to the remaining white spaces
-//Native WS:
-//"(' '|'\t')+ {$channel=HIDDEN;}";
-
-//SL_COMMENT:
-//"'#' ~('\n'|'\r')* '\r'? '\n' {$channel=HIDDEN;}";
