@@ -2,9 +2,9 @@ grammar info.cukes.feature.CucumberFeature with org.eclipse.xtext.common.Termina
 
 generate cucumberFeature "http://www.cukes.info/feature/CucumberFeature"
 
-Cucumber: (f+=Feature)*;
+Cucumber: (features+=Feature)*;
 
-Feature: "Feature:" (description+=Word)+ fb=FeatureBlock (b=Background)? (ss += Scenario)*;
+Feature: "Feature:" (name+=Word)+ description=FeatureBlock (background=Background)? (scenarios += Scenario)*;
 	
 FeatureBlock: {FeatureBlock} (businessValueDefinition+=Word)* (roleDefinition+=Word)* (actionDefinition+=Word)*;
 

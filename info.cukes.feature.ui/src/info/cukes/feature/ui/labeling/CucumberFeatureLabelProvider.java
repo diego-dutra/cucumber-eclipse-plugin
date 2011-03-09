@@ -32,7 +32,7 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
 	// Labels and icons can be computed like this:
 
 	String text(Feature elem) {
-		return "Feature: " + join(elem.getDescription(), " ");
+		return "Feature: " + join(elem.getName(), " ");
 	}
 
 	String image(Background elem) {

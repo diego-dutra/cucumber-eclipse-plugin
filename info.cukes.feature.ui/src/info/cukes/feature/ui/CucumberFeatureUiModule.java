@@ -3,6 +3,9 @@
  */
 package info.cukes.feature.ui;
 
+import info.cukes.feature.ui.hyperlinking.StepDefinitionHyperlinkDetector;
+
+import org.eclipse.jface.text.hyperlink.IHyperlinkDetector;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
 /**
@@ -12,4 +15,10 @@ public class CucumberFeatureUiModule extends info.cukes.feature.ui.AbstractCucum
 	public CucumberFeatureUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
+
+	@Override
+	public Class<? extends IHyperlinkDetector> bindIHyperlinkDetector() {
+		return StepDefinitionHyperlinkDetector.class;
+	}
+	
 }
