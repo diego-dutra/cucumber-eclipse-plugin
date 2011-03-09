@@ -4,11 +4,10 @@
 package info.cukes.feature.ui.labeling;
 
 import info.cukes.feature.cucumberFeature.Background;
+import info.cukes.feature.cucumberFeature.Examples;
 import info.cukes.feature.cucumberFeature.Feature;
-import info.cukes.feature.cucumberFeature.FeatureDescription;
 import info.cukes.feature.cucumberFeature.Scenario;
 import info.cukes.feature.cucumberFeature.StepDefinition;
-import info.cukes.feature.cucumberFeature.TableBlock;
 
 import java.util.List;
 
@@ -33,7 +32,7 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
 	// Labels and icons can be computed like this:
 
 	String text(Feature elem) {
-		return "Feature: " + join(elem.getFd().getText(), " ");
+		return "Feature: " + join(elem.getDescription(), " ");
 	}
 
 	String image(Background elem) {
@@ -44,11 +43,11 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
 		return "Background";
 	}
 
-	String image(TableBlock elem) {
+	String image(Examples elem) {
 		return "limwire.png";
 	}
 
-	String text(TableBlock elem) {
+	String text(Examples elem) {
 		return "Examples";
 	}
 
@@ -70,10 +69,6 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
 
 	String image(Feature elem) {
 		return "cucumber.png";
-	}
-
-	String image(FeatureDescription elem) {
-		return "build_var_obj.gif";
 	}
 
 	public static String join(List<String> list, String separator) {

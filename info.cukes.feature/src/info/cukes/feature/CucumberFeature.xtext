@@ -4,33 +4,23 @@ generate cucumberFeature "http://www.cukes.info/feature/CucumberFeature"
 
 Cucumber: (f+=Feature)*;
 
-Feature: fi=FeatureIdentifier fd=FeatureDescription fb=FeatureBlock (b=Background)? (ss += Scenario)*;
+Feature: "Feature:" (description+=Word)+ fb=FeatureBlock (b=Background)? (ss += Scenario)*;
 	
-FeatureBlock: {FeatureBlock} (bvd=BusinessValueDefinition)? (rd=RoleDefinition)? (sad=SomeActionDefinition)?;
+FeatureBlock: {FeatureBlock} (businessValueDefinition+=Word)* (roleDefinition+=Word)* (actionDefinition+=Word)*;
 
-FeatureIdentifier: "Feature:";
-FeatureDescription: (text+=Word)+;
 
-BusinessValueDefinition: (text+=Word)+;
-
-RoleDefinition: (text+=Word)+;
-
-SomeActionDefinition: (text+=Word)+;
-
-Background: bi=BackgroundIdentifier  (stepDefinitions += StepDefinition)*;
-BackgroundIdentifier: "Background:";
+Background: {Background} "Background:"  (stepDefinitions += StepDefinition)*;
 
 Scenario: BasicScenario | TableScenario;
-BasicScenario: si=ScenarioIdentifier description=ScenarioDescription (stepDefinitions += StepDefinition)*;
-TableScenario: "Scenario Outline:" description=ScenarioDescription  (stepDefinitions += StepDefinition)* table_block=TableBlock;
+BasicScenario: "Scenario:" description=ScenarioDescription (stepDefinitions += StepDefinition)*;
+TableScenario: "Scenario Outline:" description=ScenarioDescription  (stepDefinitions += StepDefinition)* examples=Examples;
 
-TableBlock: "Examples:" (header+=Word)+
+Examples: "Examples:" (header+=Word)+
 		(tr+=TableRow)*;
 TableRow: (text+=Word)+;
 
 StepDefinition: type=("Given" | "When" | "Then" | "And") (text+=Word)+;
 
-ScenarioIdentifier: "Scenario:";
 ScenarioDescription: (text+=Word)+;
 
 
