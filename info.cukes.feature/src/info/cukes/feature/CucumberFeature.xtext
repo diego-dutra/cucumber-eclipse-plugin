@@ -6,7 +6,7 @@ Cucumber: (f+=Feature)*;
 
 Feature: fi=FeatureIdentifier fd=FeatureDescription fb=FeatureBlock (b=Background)? (ss += Scenario)*;
 	
-FeatureBlock: (bvd=BusinessValueDefinition)? (rd=RoleDefinition)? (sad=SomeActionDefinition)?;
+FeatureBlock: {FeatureBlock} (bvd=BusinessValueDefinition)? (rd=RoleDefinition)? (sad=SomeActionDefinition)?;
 
 FeatureIdentifier: "Feature:";
 FeatureDescription: (text+=Word)+;
@@ -17,13 +17,12 @@ RoleDefinition: (text+=Word)+;
 
 SomeActionDefinition: (text+=Word)+;
 
-Background: bi=BackgroundIdentifier (gb=GivenBlock)? (wb=WhenBlock)? (tb=ThenBlock)?;
+Background: bi=BackgroundIdentifier  (stepDefinitions += StepDefinition)*;
 BackgroundIdentifier: "Background:";
 
 Scenario: BasicScenario | TableScenario;
-BasicScenario: si=ScenarioIdentifier sd=ScenarioDescription (gb=GivenBlock)? (wb=WhenBlock)? (tb=ThenBlock)?;
-TableScenario: tsi=TableScenarioIdentifier sd=ScenarioDescription (gb=GivenBlock)? (wb=WhenBlock)? (tb=ThenBlock)? table_block=TableBlock;
-TableScenarioIdentifier: "Scenario Outline:";
+BasicScenario: si=ScenarioIdentifier description=ScenarioDescription (stepDefinitions += StepDefinition)*;
+TableScenario: "Scenario Outline:" description=ScenarioDescription  (stepDefinitions += StepDefinition)* table_block=TableBlock;
 
 TableBlock: ti=TableIdentifier th=TableHeader
 		(tr+=TableRow)*;
@@ -31,29 +30,10 @@ TableIdentifier: "Examples:";
 TableHeader: (text+=Word)+;
 TableRow: (text+=Word)+;
 
+StepDefinition: type=("Given" | "When" | "Then" | "And") (text+=Word)+;
 
 ScenarioIdentifier: "Scenario:";
 ScenarioDescription: (text+=Word)+;
-
-GivenBlock: gi=GivenIdentifier given_def=GivenDefinition
-(ab += AndBlock)*;
-GivenIdentifier: "Given";
-
-WhenBlock: wi=WhenIdentifier when_def=WhenDefinition
-(ab += AndBlock)*;
-WhenIdentifier: "When";
-
-ThenBlock: ti=ThenIdentifier then_def=ThenDefinition
-(ab += AndBlock)*;
-ThenIdentifier: "Then";
-
-AndBlock: ai=AndIdentifier and_def=AndDefinition;
-AndIdentifier: "And";
-
-GivenDefinition: (text+=Word)+;
-WhenDefinition: (text+=Word)+;
-ThenDefinition: (text+=Word)+;
-AndDefinition: (text+=Word)+;
 
 
 Word: ID|STRING|INT|"."|":"|","|"|"|"<"|">";//|WS; //NotInorderto|NotAsa|NotIwantto|
