@@ -40,7 +40,7 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
 	
 	 
     
-    String text(Feature elem) { return "Feature: "+elem.getFi(); }
+    String text(Feature elem) { return "Feature: "+join(elem.getFd().getText()," "); }
 
 
     String image(Background elem) { return "background.png"; }
