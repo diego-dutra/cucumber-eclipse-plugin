@@ -3,6 +3,24 @@
 */
 package info.cukes.feature.ui.labeling;
 
+import java.util.List;
+
+import info.cukes.feature.cucumberFeature.AndBlock;
+import info.cukes.feature.cucumberFeature.AndDefinition;
+import info.cukes.feature.cucumberFeature.Background;
+import info.cukes.feature.cucumberFeature.Feature;
+import info.cukes.feature.cucumberFeature.FeatureDescription;
+import info.cukes.feature.cucumberFeature.GivenBlock;
+import info.cukes.feature.cucumberFeature.GivenDefinition;
+import info.cukes.feature.cucumberFeature.Scenario;
+import info.cukes.feature.cucumberFeature.ScenarioDescription;
+import info.cukes.feature.cucumberFeature.TableBlock;
+import info.cukes.feature.cucumberFeature.TableHeader;
+import info.cukes.feature.cucumberFeature.ThenBlock;
+import info.cukes.feature.cucumberFeature.ThenDefinition;
+import info.cukes.feature.cucumberFeature.WhenBlock;
+import info.cukes.feature.cucumberFeature.WhenDefinition;
+
 import org.eclipse.emf.edit.ui.provider.AdapterFactoryLabelProvider;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 
@@ -20,15 +38,46 @@ public class CucumberFeatureLabelProvider extends DefaultEObjectLabelProvider {
 		super(delegate);
 	}
 
-/*
 	//Labels and icons can be computed like this:
 	
-	String text(MyModel ele) {
-	  return "my "+ele.getName();
-	}
 	 
-    String image(MyModel ele) {
-      return "MyModel.gif";
+    
+    String text(Feature elem) { return "Feature: "+elem.getFi(); }
+
+
+    String image(Background elem) { return "background.png"; }
+    String text(Background elem) { return "Background"; }
+
+    String image(TableBlock elem) { return "limwire.png"; }
+    String text(TableBlock elem) { return "Examples"; }
+
+
+    String image(Scenario elem) { return "scenario.png"; }
+    String text(Scenario elem) { return "Scenario: "+join(elem.getSd().getText()," "); }
+
+
+    String text(GivenBlock elem) { return "Given "+text(elem.getGiven_def()); }
+    String text(GivenDefinition elem) { return join(elem.getText()," "); }
+
+    String text(WhenBlock elem) { return "When "+text(elem.getWhen_def()); }
+    String text(WhenDefinition elem) { return join(elem.getText()," "); }
+
+    String text(ThenBlock elem) { return "Then "+text(elem.getThen_def()); }
+    String text(ThenDefinition elem) { return join(elem.getText()," "); }
+
+    String image(AndBlock elem) { return "link_obj.gif"; }
+    String text(AndBlock elem) { return "And "+text(elem.getAnd_def()); }
+    String text(AndDefinition elem) { return join(elem.getText()," "); }
+
+    String image(Feature elem) { return "cucumber.png"; }
+    String image(FeatureDescription elem) { return "build_var_obj.gif"; }
+    public static String join(List<String> list, String separator) {
+    	StringBuilder out = new StringBuilder();
+    	for (Object o : list)
+    	{
+    	  out.append(o.toString());
+    	  out.append(separator);
+    	}
+    	return out.toString();
     }
-*/
 }
